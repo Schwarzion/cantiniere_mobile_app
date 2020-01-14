@@ -1,22 +1,43 @@
 <ion-content padding>
   <form [formGroup]="loginForm" (ngSubmit)="loginform()">
     <ion-grid>
-      <ion-row  justify-content-center>
+      <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div text-center>
             <img src="../../assets/image/logo_la_cantiniere_desk.png">
           </div>
-          <div padding>
-            <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" formControlName="email" required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" formControlName="password" required></ion-input>
-            </ion-item>
-          </div>
-          <div padding>
-            <ion-button size="large" type="submit">Connexion</ion-button>
-          </div>
+          <ion-card>
+            <div padding>
+              <div class="sign-in" text-center>
+                <p>Vous avez déjà un compte, <br> Connectez vous !</p>
+              </div>
+              <div>
+                <p>E-mail</p>
+              </div>
+              <ion-card>
+                <ion-item>
+                  <ion-input class="mouse" name="email" type="email" placeholder="your@email.com"
+                    formControlName="email" required>
+                  </ion-input>
+                </ion-item>
+              </ion-card>
+              <div>
+                <p>Password</p>
+              </div>
+              <ion-card>
+                <ion-item>
+                  <ion-input name="password" type="password" placeholder="Password" formControlName="password" required>
+                  </ion-input>
+                </ion-item>
+              </ion-card>
+            </div>
+            <div text-center>
+              <ion-button type="submit" expand="block">Connectez-vous</ion-button>
+            </div>
+            <div class="sign-in" text-center>
+              <p>Toujours pas de compte ? Inscrivez-vous !</p>
+            </div>
+          </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>

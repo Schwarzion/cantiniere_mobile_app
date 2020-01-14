@@ -1,14 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../services/menu.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
+  private results;
+  private subscription: Subscription;
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
+  ngOnInit() {
+    //this.getMenuTodayList("");
+    this.getMenuWeekList();
+  }
+  public getMenuWeekList() {
+    this.subscription = this.menuService.getMenuWeekList().subscribe(resp => {
+      this.results = resp;
+      console.log(this.results);
+    });
+  }
+
+  // public getMenuTodayList(menu) {
+  //   this.menuService.getMenuTodayList(menu).subscribe(resp => {
+  //     this.results = resp;
+  //     console.log(this.results);
+  //   })
+  // }
 
 
   slides = [
