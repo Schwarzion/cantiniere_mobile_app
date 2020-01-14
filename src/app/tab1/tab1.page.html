@@ -1,13 +1,56 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Cagnotte : {{userInfo['wallet']}}€
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<!--Menu Semaine-->
+<ion-list class="list">
+  <ion-card>
+    <ion-item>
+      <ion-icon name="restaurant" slot="start"></ion-icon>
+      <ion-label>Menu de la semaine</ion-label>
+      <ion-button fill="outline" slot="end">hebdo</ion-button>
+    </ion-item>
+    <ion-card-content>
+      <ion-item>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let slide of slides">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>{{slide.titreMenu}}</ion-card-subtitle>
+                <ion-card-title>{{slide.prixMenu}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-img src={{slide.img}}></ion-img>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content>
-  <button type="button" class="btn btn-primary">Primary</button>
-  <button type="button" class="btn btn-secondary">Secondary</button>
-  <button type="button" class="btn btn-success">Success</button>
-</ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card *ngFor="let card of cardMenus">
+        <ion-item>
+          <ion-icon name="restaurant" slot="start"></ion-icon>
+          <ion-label>{{card.titreMenu}}</ion-label>
+        </ion-item>
+        <ion-card-content>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>{{card.titreMenu}}</ion-card-subtitle>
+              <ion-card-title>{{card.prixMenu}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-img src={{card.img}}></ion-img>
+            </ion-card-content>
+          </ion-card>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
