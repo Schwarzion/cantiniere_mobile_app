@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
-
+import { isJWTRequired } from "../utils/interceptor"
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class TokenincerptorService {
     const currentUser = this.userservice.getUserToken();
 
     //check if access_token is in userservice
-    if (currentUser && currentUser.length > 1) {
+    if ((currentUser && currentUser.length > 1) && isJWTRequired(request.url)) {
 
       //clone the http request and paste the authorization header
       request = request.clone({
