@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as jwt_decode from "jwt-decode";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class UserService {
       return localStorage.getItem('access_token');
   }
 
+  //get expiration date of token
   getExpirationDate(){
     const decoded = jwt_decode(localStorage.getItem('access_token'));
 
@@ -28,8 +30,21 @@ export class UserService {
     return date;
   }
 
+  //set user info in localStorage
+  setUser(){
+    const decoded = jwt_decode(localStorage.getItem('access_token'));
+
+    if (decoded.user === undefined) return null;
+
+    const user = decoded.user;
+    localStorage.setItem('userinfo', JSON.stringify(user));
+  }
+  
+  
+
   logout(){
     localStorage.removeItem('access_token');
+    localStorage.removeItem('userinfo');
   }
 
   public get loggedIn(): boolean{

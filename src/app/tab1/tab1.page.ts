@@ -11,18 +11,25 @@ import { Router } from '@angular/router';
 export class Tab1Page implements OnInit {
   private results;
   private subscription: Subscription;
-
+  private userInfo: any;
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
     //this.getMenuTodayList("");
     this.getMenuWeekList();
+    this.getUserInfo();
   }
   public getMenuWeekList() {
     this.subscription = this.menuService.getMenuWeekList().subscribe(resp => {
       this.results = resp;
       console.log(this.results);
     });
+  }
+
+
+  //set user info in the class
+  public getUserInfo(){
+    this.userInfo = JSON.parse(localStorage.getItem('userinfo'));
   }
 
   // public getMenuTodayList(menu) {

@@ -12,6 +12,6 @@ export class LoginService {
 
   login(user):Observable <any>{
     console.log(user);
-    return this.http.post(`${environment.apiUrl}login`, user, { observe: 'response'});
+    return this.http.post(`${environment.apiUrl}/login`, user, { observe: 'response'});
   }
 }

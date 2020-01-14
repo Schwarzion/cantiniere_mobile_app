@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       if (res.status === 200) {
         const token = res.headers.get('authorization');
         this.userService.setUserToken(token);
+        this.userService.setUser();
         this.router.navigateByUrl('/tabs/tab1');
       }
     }, err => {
