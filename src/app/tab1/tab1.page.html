@@ -7,7 +7,7 @@
 </ion-header>
 <!--Menu Semaine-->
 <ion-list class="list">
-  <ion-card>
+  <!--  <ion-card>
     <ion-item>
       <ion-icon name="restaurant" slot="start"></ion-icon>
       <ion-label>Menu de la semaine</ion-label>
@@ -19,11 +19,14 @@
           <ion-slide *ngFor="let slide of slides">
             <ion-card>
               <ion-card-header>
-                <ion-card-subtitle>{{slide.titreMenu}}</ion-card-subtitle>
-                <ion-card-title>{{slide.prixMenu}}</ion-card-title>
+                <ion-card-subtitle>{{slide.label}}</ion-card-subtitle>
+                <ion-card-title>{{slide.priceDF}} €</ion-card-title>
               </ion-card-header>
               <ion-card-content>
-                <ion-img src={{slide.img}}></ion-img>
+                <ion-item *ngFor="let meal of slide.meals">
+                  {{meal.label}}
+                  <ion-img src={{meal.image}}></ion-img>
+                </ion-item>
               </ion-card-content>
             </ion-card>
           </ion-slide>
@@ -53,4 +56,34 @@
       </ion-card>
     </ion-card-content>
   </ion-card>
-</ion-list>
+</ion-list> -->
+
+  <ion-list class="list">
+    <ion-list>
+      <ion-list-header>
+        <div class="listMenu">Menu de la semaine</div>
+      </ion-list-header>
+      <ion-card>
+        <ion-card-content>
+          <ion-card *ngFor="let card of cardHebdos">
+            <ion-card-header>
+              <ion-slides>
+                <ion-slide *ngFor="let meal of card.meals">
+                  <ion-card-content>
+                    <img [src]="getImg(meal.image)" alt="">
+                  </ion-card-content>
+                </ion-slide>
+              </ion-slides>
+              <ion-icon name="restaurant" slot="start"></ion-icon>
+              <ion-card-subtitle>{{card.label}}</ion-card-subtitle>
+              <ion-card-title>{{card.priceDF}} €</ion-card-title>
+            </ion-card-header>
+            <ion-item *ngFor="let meal of card.meals">
+              <ion-content>{{meal.label}}</ion-content>
+
+            </ion-item>
+          </ion-card>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </ion-list>
