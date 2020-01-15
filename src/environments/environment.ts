@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://192.168.236.128:8080/lunchtime/"
+  apiUrl: "http://192.168.40.128:8080/lunchtime"
 };
 /*
  * For easier debugging in development mode, you can import the following file
