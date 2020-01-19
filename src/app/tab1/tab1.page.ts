@@ -3,6 +3,7 @@ import { MenuService } from '../services/menu.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
@@ -11,15 +12,21 @@ import { environment } from 'src/environments/environment';
 })
 export class Tab1Page implements OnInit {
   private cardHebdos;
+  private cardDay;
   private subscription: Subscription;
   private userInfo: any;
-  public load = "http://192.168.40.128:8080/lunchtime/";
+  private dateInfo: any;
+
+
+
+
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    //this.getMenuTodayList("");
     this.getMenuWeekList();
+    this.getMenuTodayList();
     this.getUserInfo();
+
   }
 
   //get all menu for the week
@@ -27,7 +34,15 @@ export class Tab1Page implements OnInit {
     this.subscription = this.menuService.getMenuWeekList().subscribe(resp => {
       this.cardHebdos = resp;
       console.log(this.cardHebdos);
+      console.log(Date);
     });
+  }
+
+  public getMenuTodayList() {
+    this.subscription = this.menuService.getMenuTodayList().subscribe(resp => {
+      this.cardDay = resp;
+      console.log(this.cardDay)
+    })
   }
 
 
@@ -41,12 +56,15 @@ export class Tab1Page implements OnInit {
     return `${environment.apiUrl}/${image}`;
   }
 
-  // public getMenuTodayList(menu) {
-  //   this.menuService.getMenuTodayList(menu).subscribe(resp => {
-  //     this.results = resp;
-  //     console.log(this.results);
-  //   })
-  // }
+  public getDateInfo(dateInfo: any) {
+    return `${dateInfo}`;
+
+  }
+
+}
+
+
+
 
 
   // slides = [
@@ -97,22 +115,21 @@ export class Tab1Page implements OnInit {
   //   }
   // ];
 
-  cardMenus = [
-    {
-      titreMenu: "test1",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-    },
-    {
-      titreMenu: "test2",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
+  //   cardMenus = [
+  //     {
+  //       titreMenu: "test1",
+  //       prixMenu: "5€50",
+  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
+  //     },
+  //     {
+  //       titreMenu: "test2",
+  //       prixMenu: "5€50",
+  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
 
-    },
-    {
-      titreMenu: "test3",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-    },
-  ];
-}
+  //     },
+  //     {
+  //       titreMenu: "test3",
+  //       prixMenu: "5€50",
+  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
+  //     },
+  //   ];
