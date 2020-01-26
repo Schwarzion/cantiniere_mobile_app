@@ -20,12 +20,14 @@
             <ion-slides>
               <ion-slide *ngFor="let meal of card.meals">
                 <ion-card-content>
-                  <img [src]="getImg(meal.image)" alt="">
+                  <img [src]="getImg(meal)" alt="">
                 </ion-card-content>
               </ion-slide>
             </ion-slides>
             <ion-icon name="restaurant" slot="start"></ion-icon>
-            <ion-card-subtitle>{{card.label}}</ion-card-subtitle>
+            <ion-card-subtitle>
+                <ion-button (click)="order(card)" >Commander - {{card.label}}</ion-button>
+            </ion-card-subtitle>
             <ion-card-title>{{card.priceDF}} €</ion-card-title>
           </ion-card-header>
           <ion-item *ngFor="let meal of card.meals">
@@ -48,7 +50,7 @@
             <ion-slides>
               <ion-slide *ngFor="let meal of card.meals">
                 <ion-card-content>
-                  <img [src]="getImg(meal.image)" alt="">
+                  <img [src]="getImg(meal)" alt="">
                 </ion-card-content>
               </ion-slide>
             </ion-slides>

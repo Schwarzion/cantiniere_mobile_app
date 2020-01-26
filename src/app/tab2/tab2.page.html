@@ -1,12 +1,37 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Cagnotte: {{userinfo.wallet}}$
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <button (click)="logout()">logout</button>
+  <ion-card>
+    <ion-item>
+    <ion-title>Information utilisateur</ion-title>
+  </ion-item>
+    <ion-item>
+    <ion-input placeholder="{{userinfo.name}}"></ion-input>
+  </ion-item>
+   <ion-item>
+  <ion-input placeholder="{{userinfo.firstname}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="{{userinfo.phone}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="{{userinfo.email}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="{{userinfo.sex}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Inscription le : {{userinfo.registrationDate}}</ion-label>
+  </ion-item>
+   <ion-item>
+    <ion-button (click)="logout()">logout</ion-button>
+  </ion-item>
+  </ion-card>
 
 </ion-content>

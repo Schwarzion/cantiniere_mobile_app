@@ -20,7 +20,7 @@ export class Tab1Page implements OnInit {
 
 
 
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private router:Router) { }
 
   ngOnInit() {
     this.getMenuWeekList();
@@ -53,83 +53,16 @@ export class Tab1Page implements OnInit {
 
   //getImage menu for slide
   public getImg(image: any) {
-    return `${environment.apiUrl}/${image}`;
+    return `${environment.apiUrl}/img/meal/${image.label}.png`;
   }
 
   public getDateInfo(dateInfo: any) {
     return `${dateInfo}`;
 
   }
+  public order(menu){
+    localStorage.setItem('menuOrder', JSON.stringify(menu));
+    this.router.navigateByUrl('/order');
+  }
 
 }
-
-
-
-
-
-  // slides = [
-  //   {
-  //     titreMenu: `LeMenuSamer`,
-  //     meals: [
-  //       {
-  //         nomPlat: `bidule`,
-  //         imgPlat: 'uneImage',
-  //       },
-  //       {
-  //         nomPlat: `bidule2`,
-  //         imgPlat: 'uneAutreImage',
-  //       }
-  //     ],
-  //     prixMenu: '5€50',
-  //     img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-  //   },
-  //   {
-  //     titreMenu: `LeMenuPasOuf`,
-  //     prixMenu: '2€50',
-  //     meals: [
-  //       {
-  //         nomPlat: `bidule`,
-  //         imgPlat: 'uneImage',
-  //       },
-  //       {
-  //         nomPlat: `bidule2`,
-  //         imgPlat: 'uneAutreImage',
-  //       }
-  //     ],
-  //     img: "https://fr.ubergizmo.com/wp-content/uploads/2013/08/double-cheese-mcdonalds-offre-rapport-prix-nutrition-imbattable.jpg"
-  //   },
-  //   {
-  //     titreMenu: `LeMenuDesIbmErs`,
-  //     prixMenu: '50€50',
-  //     meals: [
-  //       {
-  //         nomPlat: `bidule`,
-  //         imgPlat: 'uneImage',
-  //       },
-  //       {
-  //         nomPlat: `bidule2`,
-  //         imgPlat: 'uneAutreImage',
-  //       }
-  //     ],
-  //     img: "https://media-cdn.tripadvisor.com/media/photo-s/11/0f/2a/c2/le-mega-burger.jpg"
-  //   }
-  // ];
-
-  //   cardMenus = [
-  //     {
-  //       titreMenu: "test1",
-  //       prixMenu: "5€50",
-  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-  //     },
-  //     {
-  //       titreMenu: "test2",
-  //       prixMenu: "5€50",
-  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-
-  //     },
-  //     {
-  //       titreMenu: "test3",
-  //       prixMenu: "5€50",
-  //       img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-  //     },
-  //   ];

@@ -2,11 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import {LoginComponent} from "../login/login.component";
+import {OrderComponent} from "../order/order.component";
+import { GuardService } from '../services/guard.service';
+import { RegisterComponent } from '../register/register.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+  },
+  {
+    path: 'order',
+    component: OrderComponent,
+    canActivate: [GuardService]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'tabs',
@@ -18,7 +31,8 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../tab1/tab1.module').then(m => m.Tab1PageModule),
+              canActivate: [GuardService],
           }
         ]
       },
@@ -28,7 +42,8 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../tab2/tab2.module').then(m => m.Tab2PageModule),
+              canActivate: [GuardService]
           }
         ]
       },
@@ -38,14 +53,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../tab3/tab3.module').then(m => m.Tab3PageModule),
+              canActivate: [GuardService]
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
       }
     ]
   },

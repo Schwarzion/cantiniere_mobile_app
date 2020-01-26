@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  userinfo;
   constructor(private userservice: UserService, private router:Router) {}
+  ngOnInit() {
+    this.getUser();
+  }
 
   logout(){
     this.userservice.logout();
     this.router.navigateByUrl('/');
+  }
+  getUser(){
+     this.userinfo = JSON.parse(localStorage.getItem('userinfo'));
   }
 }
