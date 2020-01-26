@@ -5,7 +5,46 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  
 
+<ion-content>
+  <ion-card>
+    <form [formGroup]="form" (ngSubmit)="submit(form)">
+    <ion-item>
+        <ion-input type="text" placeholder="nom"  formControlName="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="prenom" formControlName="firstname" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholer="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Confirmer votre mot de passe" formControlName="confirmPassword" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="email" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="addresse" formControlName="address" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="numéro de téléphone" formControlName="phone" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="ville" formControlName="town" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="codepostale" formControlName="postalCode" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-select placeholder="sexe" formControlName="sex">
+          <ion-select-option value="0">Homme</ion-select-option>
+          <ion-select-option value="1">Femme</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-button type="ngSubmit">Valider</ion-button>
+    </ion-item>
+  </form>
+  </ion-card>
 </ion-content>

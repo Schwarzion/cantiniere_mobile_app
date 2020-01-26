@@ -25,6 +25,7 @@ export class MenuService {
       catchError(this.handleError('getMenuList', []))
     );
   }
+  
 
   //handle error return error of any type for http request
   private handleError<T>(operation = 'operation', result?: T) {
