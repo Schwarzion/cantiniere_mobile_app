@@ -29,5 +29,8 @@ export class Tab3Page {
     let userinfo = JSON.parse(localStorage.getItem('userinfo'));
     return userinfo['wallet'];
   }
+  cancelOrder(order){
+    this.orderservice.cancelOrder(order.id).subscribe(res => console.log(res));
+  }
 
 }

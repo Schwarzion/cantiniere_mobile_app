@@ -32,7 +32,7 @@ export class OrderComponent implements OnInit {
     let id = username['id'];
 
     const test = {
-      constraintId: 1,
+      constraintId: -1,
       menuId: this.order.id,
       userId: id
     };

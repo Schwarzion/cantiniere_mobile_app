@@ -17,5 +17,8 @@ export class LoginService {
   addUser(newData: any): Observable<any> {
     return this.http.put(`${environment.apiUrl}/user/register`, newData, { observe: 'response' });
   }
+  forgerpassword(email){
+      return this.http.post(`${environment.apiUrl}/forgotpassword?email=${email}`, {});
+  }
 
 }

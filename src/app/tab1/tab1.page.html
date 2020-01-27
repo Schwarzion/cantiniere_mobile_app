@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Cagnotte : {{userInfo['wallet']}}€
+    <ion-title class="toolbar-title">
+      Cagnotte : <span>{{userInfo['wallet']}}€</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,11 +11,11 @@
   <ion-list>
     <!-- <div ngIf=""></div> -->
     <ion-list-header>
-      <div class="listMenu">Menu de la semaine</div>
+      <div class="listMenu title">Menu de la semaine</div>
     </ion-list-header>
     <ion-card>
-      <ion-card-content>
-        <ion-card *ngFor="let card of cardHebdos">
+      <ion-card-content class="card-content">
+        <ion-card  class="card" *ngFor="let card of cardHebdos">
           <ion-card-header>
             <ion-slides>
               <ion-slide *ngFor="let meal of card.meals">
@@ -28,10 +28,10 @@
             <ion-card-subtitle>
                 <ion-button (click)="order(card)" >Commander - {{card.label}}</ion-button>
             </ion-card-subtitle>
-            <ion-card-title>{{card.priceDF}} €</ion-card-title>
+            <ion-card-title class="card-price">{{card.priceDF}} €</ion-card-title>
           </ion-card-header>
           <ion-item *ngFor="let meal of card.meals">
-            <ion-content>{{meal.label}}</ion-content>
+            <ion-content class="card-label">{{meal.label}}</ion-content>
           </ion-item>
         </ion-card>
       </ion-card-content>
@@ -41,11 +41,11 @@
 
   <ion-list>
     <ion-list-header>
-      <div class="listMenu">Menu du jour</div>
+      <div class="listMenu title">Menu du jour</div>
     </ion-list-header>
     <ion-card>
-      <ion-card-content>
-        <ion-card *ngFor="let card of cardDay">
+      <ion-card-content class="card-content">
+        <ion-card class="card" *ngFor="let card of cardDay">
           <ion-card-header>
             <ion-slides>
               <ion-slide *ngFor="let meal of card.meals">
@@ -54,12 +54,13 @@
                 </ion-card-content>
               </ion-slide>
             </ion-slides>
+            <ion-button (click)="order(card)" >Commander - {{card.label}}</ion-button>
             <ion-icon name="restaurant" slot="start"></ion-icon>
-            <ion-card-subtitle>{{card.label}}</ion-card-subtitle>
-            <ion-card-title>{{card.priceDF}} €</ion-card-title>
+            <ion-card-subtitle class="card-label">{{card.label}}</ion-card-subtitle>
+            <ion-card-title class="card-price">{{card.priceDF}} €</ion-card-title>
           </ion-card-header>
           <ion-item *ngFor="let meal of card.meals">
-            <ion-content>{{meal.label}}</ion-content>
+            <ion-content class="card-label">{{meal.label}}</ion-content>
           </ion-item>
         </ion-card>
       </ion-card-content>

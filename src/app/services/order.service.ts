@@ -17,6 +17,9 @@ export class OrderService {
       catchError(this.handleError('putOrder', []))
       );
    }
+   cancelOrder(id){
+     return this.http.patch(environment.apiUrl+'/order/cancel/'+id, id);
+   }
    
    getOrderForUser(): Observable<any> {
      let username = JSON.parse(localStorage.getItem('userinfo'));

@@ -11,5 +11,74 @@
 .listMenu {
   text-align: center;
   text-transform: uppercase;
-  text-indent: 5em;
 } 
+
+// Spe
+.toolbar-title {
+  font-weight: 16px;
+  color: #004D5D;
+
+  span {
+    font-weight: 16px;
+    color: #FF9900;
+  }
+}
+
+.title {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  color: #004D5D;
+  text-align: left !important;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    height: 2px;
+    width: 15px;
+    background-color: #FF9900;
+  }
+}
+
+.card-content {
+  background-color: rgba(244, 244, 244, 0.3);
+}
+
+.card {
+  margin-bottom: 25px;
+  border-radius: 5px;
+
+  img {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 160px;
+    max-height: 160px;
+    border-radius: 5px;
+  }
+
+  &-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #004D5D;
+    margin-top: 20px;
+  }
+
+  &-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FF9900;
+
+    main {
+      
+    slot {
+      color: #FF9900 !important;
+    }
+    }
+  }
+}
+

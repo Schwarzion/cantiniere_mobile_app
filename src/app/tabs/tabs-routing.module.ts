@@ -5,6 +5,7 @@ import {LoginComponent} from "../login/login.component";
 import {OrderComponent} from "../order/order.component";
 import { GuardService } from '../services/guard.service';
 import { RegisterComponent } from '../register/register.component';
+import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'forgetpassword',
+    component: ForgetpasswordComponent
   },
   {
     path: 'tabs',

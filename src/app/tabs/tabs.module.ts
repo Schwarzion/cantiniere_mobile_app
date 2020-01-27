@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TabsPage } from './tabs.page';
 import { GuardService } from '../services/guard.service';
 import { RegisterComponent } from '../register/register.component';
+import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { RegisterComponent } from '../register/register.component';
     TabsPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [TabsPage, LoginComponent, OrderComponent, RegisterComponent],
+  declarations: [TabsPage, LoginComponent, OrderComponent, RegisterComponent, ForgetpasswordComponent],
   providers: [GuardService]
 })
 export class TabsPageModule {}

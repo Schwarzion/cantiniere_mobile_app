@@ -5,3 +5,27 @@ ion-icon{
     margin-right: auto;
     margin-left: auto;
 }
+
+  
+.title {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.75px;
+    color: #004D5D;
+    text-align: left !important;
+  
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: -5px;
+      left: -5px;
+      height: 2px;
+      width: 15px;
+      background-color: #FF9900;
+    }
+  }
+
