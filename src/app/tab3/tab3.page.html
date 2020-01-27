@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Three
+    <ion-title class="toolbar-title">
+      cagnotte : <span>{{wallet}}€</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+<ion-list-header>
+  <div class="listMenu title">Historique de commande</div>
+</ion-list-header>
+  <ion-list *ngFor="let order of orderhistory">
+      <ion-item>
+        <ion-label class="card-label"> {{order['creationDate']}} </ion-label>
+
+        <ion-label class="card-price" *ngIf="order.quantityMeals">
+           {{order.quantityMeals[0].meal.label}} 
+        </ion-label>
+        <ion-button *ngIf="order.status == 0" (click)="cancelOrder(order)">Cancel</ion-button>
+      </ion-item>
+  </ion-list>
+</ion-content>

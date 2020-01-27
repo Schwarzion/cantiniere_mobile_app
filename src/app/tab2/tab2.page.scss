@@ -1,1 +1,58 @@
+ion-title{
+    text-align:center;
+}
+ion-button{
+    margin-left: auto;
+    margin-right: auto;
+}
 
+ion-item {
+    width: 90%;
+    margin: 0 auto;
+
+    input {
+        border-bottom: 1px solid #FF9900;
+    }
+}
+
+// Spe
+.toolbar-title {
+    font-weight: 16px;
+    color: #004D5D;
+  
+    span {
+      font-weight: 16px;
+      color: #FF9900;
+    }
+  }
+  
+  .title {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.75px;
+    color: #004D5D;
+    text-align: left !important;
+  
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: -5px;
+      left: -5px;
+      height: 2px;
+      width: 15px;
+      background-color: #FF9900;
+    }
+  }
+  
+  .date-inscription {
+      font-size: 16px;
+      font-weight: 600;
+      color: #FF9900;
+  }
+
+  .card-inscription {
+      margin-top: 40px;
+  }
