@@ -34,8 +34,11 @@
             <div text-center>
               <ion-button type="submit" expand="block">Connectez-vous</ion-button>
             </div>
-            <div class="sign-in" text-center>
-              <p>Toujours pas de compte ? Inscrivez-vous !</p>
+            <div (click)="register()" class="sign-in" text-center>
+              <p>Inscrivez-vous !</p>
+            </div>
+            <div (click)="forgetpassword()" class="forget-password">
+              Mot de passe oublié ?
             </div>
           </ion-card>
         </ion-col>

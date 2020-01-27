@@ -1,15 +1,13 @@
-// Spe
-.toolbar-title {
-    font-weight: 16px;
-    color: #004D5D;
+ion-icon{
+    font-size: large;
+}
+.ion-button{
+    margin-right: auto;
+    margin-left: auto;
+}
+
   
-    span {
-      font-weight: 16px;
-      color: #FF9900;
-    }
-  }
-  
-  .title {
+.title {
     position: relative;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -29,19 +27,5 @@
       width: 15px;
       background-color: #FF9900;
     }
-  }
-
-  
-  .card-price {
-    font-size: 16px;
-    font-weight: 600;
-    color: #004D5D;
-    margin-top: 20px;
-  }
-
-  .card-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #FF9900;
   }
 

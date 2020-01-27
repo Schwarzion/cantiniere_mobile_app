@@ -14,4 +14,11 @@ export class LoginService {
     console.log(user);
     return this.http.post(`${environment.apiUrl}/login`, user, { observe: 'response'});
   }
+  addUser(newData: any): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/user/register`, newData, { observe: 'response' });
+  }
+  forgerpassword(email){
+      return this.http.post(`${environment.apiUrl}/forgotpassword?email=${email}`, {});
+  }
+
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
@@ -9,71 +11,58 @@ import { Router } from '@angular/router';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  private results;
+  private cardHebdos;
+  private cardDay;
   private subscription: Subscription;
   private userInfo: any;
-  constructor(private menuService: MenuService) { }
+  private dateInfo: any;
+
+
+
+
+  constructor(private menuService: MenuService, private router:Router) { }
 
   ngOnInit() {
-    //this.getMenuTodayList("");
     this.getMenuWeekList();
+    this.getMenuTodayList();
     this.getUserInfo();
+
   }
+
+  //get all menu for the week
   public getMenuWeekList() {
     this.subscription = this.menuService.getMenuWeekList().subscribe(resp => {
-      this.results = resp;
-      console.log(this.results);
+      this.cardHebdos = resp;
+      console.log(this.cardHebdos);
+      console.log(Date);
     });
+  }
+
+  public getMenuTodayList() {
+    this.subscription = this.menuService.getMenuTodayList().subscribe(resp => {
+      this.cardDay = resp;
+      console.log(this.cardDay)
+    })
   }
 
 
   //set user info in the class
-  public getUserInfo(){
+  public getUserInfo() {
     this.userInfo = JSON.parse(localStorage.getItem('userinfo'));
   }
 
-  // public getMenuTodayList(menu) {
-  //   this.menuService.getMenuTodayList(menu).subscribe(resp => {
-  //     this.results = resp;
-  //     console.log(this.results);
-  //   })
-  // }
+  //getImage menu for slide
+  public getImg(image: any) {
+    return `${environment.apiUrl}/img/meal/${image.label}.png`;
+  }
 
+  public getDateInfo(dateInfo: any) {
+    return `${dateInfo}`;
 
-  slides = [
-    {
-      titreMenu: `LeMenuSamer`,
-      prixMenu: '5€50',
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-    },
-    {
-      titreMenu: `LeMenuPasOuf`,
-      prixMenu: '2€50',
-      img: "https://fr.ubergizmo.com/wp-content/uploads/2013/08/double-cheese-mcdonalds-offre-rapport-prix-nutrition-imbattable.jpg"
-    },
-    {
-      titreMenu: `LeMenuDesIbmErs`,
-      prixMenu: '50€50',
-      img: "https://media-cdn.tripadvisor.com/media/photo-s/11/0f/2a/c2/le-mega-burger.jpg"
-    }
-  ];
+  }
+  public order(menu){
+    localStorage.setItem('menuOrder', JSON.stringify(menu));
+    this.router.navigateByUrl('/order');
+  }
 
-  cardMenus = [
-    {
-      titreMenu: "test1",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-    },
-    {
-      titreMenu: "test2",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-
-    },
-    {
-      titreMenu: "test3",
-      prixMenu: "5€50",
-      img: "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/burger-de-hampe-de-boeuf-a-laustralienne.jpg?itok=91Hj2MMY"
-    },
-  ];
 }

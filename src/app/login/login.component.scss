@@ -23,10 +23,19 @@ img{
 }
 .sign-in {
     color: #004D5D;
-    
-    
 }
-
+.forget-password{
+    color: #004D5D;
+    text-align: center;
+}
+.forget-password:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.sign-in:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .mouse:focus {
     border-color:#FF9900 !important;
     background-color: orange !important;

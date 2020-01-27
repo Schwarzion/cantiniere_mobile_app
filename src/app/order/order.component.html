@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Cagnotte : {{userInfo['wallet']}}€
+      </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-card> 
+   <ion-title>{{order.label}}</ion-title>
+   <ion-card-content>
+    <img [src]="getImg(order.meals[0])" alt="">
+  </ion-card-content>
+  <ion-item *ngFor="let meal of order.meals">
+    <ion-content>{{meal.label}}</ion-content>
+  </ion-item>
+  <ion-item>
+      {{order.priceDF}}$
+  </ion-item>
+  <ion-item>
+  <ion-select placeholder="Nombre de repas">
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+  </ion-select>
+</ion-item>
+</ion-card>
+</ion-content>
+
+<ion-button (click)="valideOrder()">Valider la commande</ion-button>

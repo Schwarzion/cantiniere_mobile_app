@@ -3,9 +3,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from "../login/login.component";
+import {OrderComponent} from "../order/order.component";
 import { TabsPageRoutingModule } from './tabs-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TabsPage } from './tabs.page';
+import { GuardService } from '../services/guard.service';
+import { RegisterComponent } from '../register/register.component';
+import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
+
 
 @NgModule({
   imports: [
@@ -13,8 +18,9 @@ import { TabsPage } from './tabs.page';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [TabsPage, LoginComponent]
+  declarations: [TabsPage, LoginComponent, OrderComponent, RegisterComponent, ForgetpasswordComponent],
+  providers: [GuardService]
 })
 export class TabsPageModule {}
